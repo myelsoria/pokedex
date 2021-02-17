@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react'
+import Pokemon from "../components/Pokemon";
 import axios from 'axios'
 
 const Pokemons = ({category}) => {
     const [pokemons, setPokemons] = useState([])
-    const [pokemonCategory, setpokemonCategory] = useState(category ? category : 'all')
+    const [pokemonCategory, setpokemonCategory] = useState(category)
 
     const url = 'https://pokeapi.co/api/v2/pokemon?limit=151'
     useEffect(() => {
@@ -17,7 +18,7 @@ const Pokemons = ({category}) => {
     return (
         <ul>
             {pokemons && pokemons.map(p => (
-                <li>{p.name}</li>
+                <Pokemon pokemon={p} />
             ) )}
         </ul>
     )
