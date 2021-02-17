@@ -3,11 +3,13 @@ import { ListGroup } from 'react-bootstrap'
 import Pokemon from "../components/Pokemon";
 import axios from 'axios'
 
-const Pokemons = ({category}) => {
+const Pokemons = ({category, searchText}) => {
     const [pokemons, setPokemons] = useState([])
     const [pokemonCategory, setpokemonCategory] = useState(category)
+    const [newPokemonList, setNewPokemonList] = useState()
 
     const url = 'https://pokeapi.co/api/v2/pokemon?limit=151'
+    
     useEffect(() => {
         const getPokemonData = async () => {
             const { data : { results } } = await axios.get(url)
@@ -16,11 +18,26 @@ const Pokemons = ({category}) => {
         getPokemonData()
     },[url])
 
+    useEffect(() => {
+        let newPokemonList = []
+        pokemons.forEach(p => {
+            if(p.name.toLowerCase().includes(searchText.toLowerCase()) === true)
+               newPokemonList.push(p)
+        })
+        console.log(newPokemonList)
+        setNewPokemonList(newPokemonList)
+    }, [searchText])
+
     return (
         <ListGroup>
-            {pokemons && pokemons.map(p => (
-                <Pokemon pokemon={p} />
-            ) )}
+                {searchText.length === 0 && newPokemonList && newPokemonList.length === 0 ?
+                    (pokemons && pokemons.map((p,index) => (
+                        <Pokemon pokemon={p} key={index} />
+                    ))) :
+                    (newPokemonList && newPokemonList.map((p,index) => (
+                        <Pokemon pokemon={p} key={index} />
+                    )))
+                }
         </ListGroup>
     )
 }

@@ -1,11 +1,9 @@
-import SearchPokemon from './components/SearchPokemon'
-import Pokemons from './components/Pokemons'
+import PokedexContainer from './components/PokedexContainer'
 
 function App() {
   return (
     <div className="App">
-      <SearchPokemon />
-      <Pokemons category />
+      <PokedexContainer />
     </div>
   );
 }
