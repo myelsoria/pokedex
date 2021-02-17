@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { ListGroup } from 'react-bootstrap'
 import Pokemon from "../components/Pokemon";
 import axios from 'axios'
 
@@ -16,11 +17,11 @@ const Pokemons = ({category}) => {
     },[url])
 
     return (
-        <ul>
+        <ListGroup>
             {pokemons && pokemons.map(p => (
                 <Pokemon pokemon={p} />
             ) )}
-        </ul>
+        </ListGroup>
     )
 }
 

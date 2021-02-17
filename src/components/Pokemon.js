@@ -1,10 +1,11 @@
 import React from 'react'
+import { ListGroupItem } from 'react-bootstrap'
 
 const Pokemon = ({pokemon}) => {
     return (
-        <li>
+        <ListGroupItem>
             {pokemon.name}
-        </li>
+        </ListGroupItem>
     )
 }
 
