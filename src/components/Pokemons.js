@@ -3,9 +3,8 @@ import { ListGroup } from 'react-bootstrap'
 import Pokemon from "../components/Pokemon";
 import axios from 'axios'
 
-const Pokemons = ({category, searchText}) => {
+const Pokemons = ({searchText}) => {
     const [pokemons, setPokemons] = useState([])
-    const [pokemonCategory, setpokemonCategory] = useState(category)
     const [newPokemonList, setNewPokemonList] = useState()
 
     const url = 'https://pokeapi.co/api/v2/pokemon?limit=151'
