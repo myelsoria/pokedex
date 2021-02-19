@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import { Container, Card, Row, Col, ProgressBar } from 'react-bootstrap'
+import { Container, Card, Row, Col, ListGroup } from 'react-bootstrap'
+import PokemonStats from './PokemonStats'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
@@ -21,12 +22,6 @@ const PokemonScreen = ({match, location}) => {
         getPokemonDetails()
     }, [url])
 
-    const newStats  = []
-    details.stats && details.stats.forEach(s => {
-        if (s.stat.name !== 'special-attack' && s.stat.name !== 'special-defense')  
-            newStats.push({base_stat: s.base_stat, stat: s.stat.name})
-    });
-
     return (
         <Container>
             <Link to='/'><i className='fas fa-angle-left text-secondary'></i></Link>
@@ -38,16 +33,9 @@ const PokemonScreen = ({match, location}) => {
                             <Card.Title className='text-capitalize'>
                                 {details.name}
                             </Card.Title>
-                            {
-                                newStats.map(s => (
-                                    <Row key={s.stat}>
-                                        <Col sm={12} md={3}><span className='text-capitalize'>{s.stat}</span></Col>
-                                        <Col sm={12} md={9}>
-                                            <ProgressBar now={s.base_stat} label={s.base_stat} max={130} variant="info" />
-                                        </Col>
-                                    </Row>
-                                ))
-                            }
+                            <ListGroup>
+                                <PokemonStats stats={details.stats} />
+                            </ListGroup>
                         </Card.Body>
                     </Card>                   
                 </Col>
