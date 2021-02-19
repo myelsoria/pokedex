@@ -23,7 +23,6 @@ const Pokemons = ({searchText}) => {
             if(p.name.toLowerCase().includes(searchText.toLowerCase()) === true)
                newPokemonList.push(p)
         })
-        console.log(newPokemonList)
         setNewPokemonList(newPokemonList)
     }, [searchText])
 
