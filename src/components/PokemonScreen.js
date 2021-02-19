@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Container, Card, Row, Col, ListGroup } from 'react-bootstrap'
 import PokemonStats from './PokemonStats'
+import PokemonTypes from './PokemonTypes'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
@@ -30,8 +31,9 @@ const PokemonScreen = ({match, location}) => {
                     <Card >
                         <Card.Img variant="top" src={imgUrl} />
                         <Card.Body>
-                            <Card.Title className='text-capitalize'>
-                                {details.name}
+                            <Card.Title className='d-flex justify-content-between align-items-center'>
+                                <span className='text-capitalize'>{details.name}</span>
+                                <PokemonTypes types={details.types}/>
                             </Card.Title>
                             <ListGroup>
                                 <PokemonStats stats={details.stats} />
