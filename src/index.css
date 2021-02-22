@@ -4,3 +4,13 @@
     width: 36px;
     height: 36px;
 }
+
+.header {
+  overflow: hidden;
+  width: 100%;
+  background: #ed213a;
+  background: -webkit-linear-gradient(#ed213a, #93291e);
+  background: linear-gradient(#ed213a, #93291e);
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
+}
