@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { Container } from 'react-bootstrap'
-import SearchPokemon from './SearchPokemon'
 import Pokemons from './Pokemons'
-import PokemonScreen from './PokemonScreen'
+import Header from './Header'
 
 const PokedexContainer = () => {
     const [searchText, setSearchText] = useState('')
@@ -11,7 +10,7 @@ const PokedexContainer = () => {
     }
     return (
         <Container>
-            <SearchPokemon onSearchTextHandler={searchTextHandler} />
+            <Header onSearchTextHandler={searchTextHandler} />
             <Pokemons searchText={searchText} />
         </Container>            
     )
