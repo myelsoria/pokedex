@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Form } from 'react-bootstrap'
+import { Form, Col, InputGroup } from 'react-bootstrap'
 
 const SearchPokemon = ({ onSearchTextHandler }) => {
   const [searchText, setSearchText] = useState('')
@@ -10,16 +10,14 @@ const SearchPokemon = ({ onSearchTextHandler }) => {
 
   return (
     <Form onSubmit={(e) => e.preventDefault()}>
-      <Form.Row>
-        <Form.Group controlId='searchText'>
-          <Form.Control
-            type='text'
-            placeholder='Search Pokemon...'
-            value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
-          />
-        </Form.Group>
-      </Form.Row>
+      <Form.Group controlId='searchText'>
+        <Form.Control
+          type='text'
+          placeholder='Search Pokemon...'
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+      </Form.Group>
     </Form>
   )
 }
