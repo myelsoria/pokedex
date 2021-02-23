@@ -10,9 +10,9 @@ const PokedexContainer = () => {
     setSearchText(data)
   }
   return (
-    <div className='d-flex flex-column min-vh-100'>
+    <div className='d-flex flex-column min-vh-100 container-bg'>
       <Header onSearchTextHandler={searchTextHandler} />
-      <Container className='py-3 flex-grow-1'>
+      <Container className='py-5 flex-grow-1'>
         <Pokemons searchText={searchText} />
       </Container>
       <Footer />

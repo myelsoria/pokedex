@@ -9,15 +9,17 @@ const SearchPokemon = ({ onSearchTextHandler }) => {
   }, [searchText])
 
   return (
-    <Form>
-      <Form.Group controlId='searchText'>
-        <Form.Control
-          type='text'
-          placeholder='Search Pokemon...'
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-        ></Form.Control>
-      </Form.Group>
+    <Form onSubmit={(e) => e.preventDefault()}>
+      <Form.Row>
+        <Form.Group controlId='searchText'>
+          <Form.Control
+            type='text'
+            placeholder='Search Pokemon...'
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+          />
+        </Form.Group>
+      </Form.Row>
     </Form>
   )
 }
