@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { ListGroup } from 'react-bootstrap'
 import Pokemon from '../components/Pokemon'
 import axios from 'axios'
 
@@ -31,15 +30,15 @@ const Pokemons = ({ searchText }) => {
   }, [searchText])
 
   return (
-    <ListGroup>
+    <div className='pokemon-list'>
       {pokemons.length ? (
         pokemons.map((pokemon, index) => (
           <Pokemon pokemon={pokemon} key={index} />
         ))
       ) : (
-        <p>Not Found</p>
+        <p className='text-white'>Not Found</p>
       )}
-    </ListGroup>
+    </div>
   )
 }
 
