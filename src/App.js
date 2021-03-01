@@ -1,4 +1,4 @@
-import { BrowserRouter, Link, Route } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 import PokedexContainer from './components/PokedexContainer'
 import PokemonScreen from './components/PokemonScreen'
 
