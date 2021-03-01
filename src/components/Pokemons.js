@@ -22,7 +22,7 @@ const Pokemons = ({ searchText }) => {
   useEffect(() => {
     if (searchText.length > 0) {
       setPokemons(
-        originalPokemons.filter((pokemon) => pokemon.name.includes(searchText))
+        originalPokemons.filter((pokemon) => pokemon.name.includes(searchText.toLowerCase()))
       )
     } else {
       setPokemons(originalPokemons)
