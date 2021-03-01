@@ -3,7 +3,7 @@ import { Image } from 'react-bootstrap'
 
 const PokemonTypes = ({ types }) => {
   return (
-    <div>
+    <div className='d-inline-flex'>
       {types &&
         types.map((t) => (
           <Image

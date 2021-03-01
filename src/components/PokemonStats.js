@@ -1,7 +1,7 @@
 import React from 'react'
-import { ListGroup, Row, Col, ProgressBar } from 'react-bootstrap'
+import { ListGroup, Row, Col } from 'react-bootstrap'
 
-const PokemonStats = ({ stats }) => {
+const PokemonStats = ({ stats, barColor }) => {
   const newStats = []
   stats &&
     stats.forEach((s) => {
@@ -13,16 +13,22 @@ const PokemonStats = ({ stats }) => {
     <ListGroup.Item>
       {newStats.map((s) => (
         <Row key={s.stat}>
-          <Col xs={12} sm={3} md={3}>
-            <span className='text-capitalize'>{s.stat}</span>
+          <Col xs={12} sm={3} md={4}>
+            <h5 className='text-capitalize'>{s.stat}</h5>
           </Col>
-          <Col xs={12} sm={9} md={9}>
-            <ProgressBar
-              now={s.base_stat}
-              label={s.base_stat}
-              max={130}
-              variant='info'
-            />
+          <Col xs={12} sm={9} md={8}>
+            <div className='progress'>
+              <div
+                className='progress-bar'
+                role='progressbar'
+                style={{
+                  minWidth: s.base_stat - 40 + '%',
+                  background: barColor,
+                }}
+              >
+                {s.base_stat}
+              </div>
+            </div>
           </Col>
         </Row>
       ))}
